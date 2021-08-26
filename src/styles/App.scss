@@ -1,0 +1,39 @@
+// uncomment for stile development 
+// @import "~bootswatch/dist/united/variables";
+// @import "~bootstrap/scss/bootstrap";
+// @import "~bootswatch/dist/united/bootswatch";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic&subset=cyrillic,cyrillic-ext,latin,latin-ext);
+// font-family: 'Open Sans Condensed', sans-serif;
+@import url(https://fonts.googleapis.com/css?family=Marcellus:400&subset=latin,latin-ext);
+// font-family: 'Marcellus', serif;
+
+@import "github-markdown-css";
+
+html {
+   overflow-y: scroll;
+}
+
+.appBody {
+  margin-top: 20px;
+  max-width: 100%;
+}
+  
+.mainMargin {
+  margin: 18px;
+}
+
+.btn {
+  white-space: nowrap;
+}
+
+/* no-gutters Class Rules */
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}
