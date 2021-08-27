@@ -159,7 +159,7 @@ function Forma() {
               <option value="65-120">65-120</option>
             </Form.Select>
           </Form.Group>
-        </Row>
+        </Row> 
 
         <Row md={12} className="p-2 border bg-light">
           <Form.Group as={Col} md="9">
