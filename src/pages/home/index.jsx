@@ -26,7 +26,7 @@ const initialValues = {
 };
 
 const bmiRanges = [
-  { from: 0,   to: 12, color: "black",     message: "Extremely underweight" },
+  { from: 0,   to: 12, color: "black",   message: "Extremely underweight" },
   { from: 12,  to: 18.5,color:"#00BFCA", message: "Underweight" },
   { from: 18.5,to: 25, color: "#2FBE02", message: "Normal weight" },
   { from: 25,  to: 30, color: "#B78600", message: "Overweight"   },

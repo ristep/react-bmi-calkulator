@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import ReactJson from "react-json-view";
 import { useAuthData } from "hooks/authData";
 import { useBmiHistory } from "hooks/useBmiHistory";
+import PsCalendar from "components/calendar/index.jsx";
 
 const About = (props) => {
   const { setTheme } = props;
   const { authData } = useAuthData();
   const { data } = useBmiHistory({userID: authData.data.id}); 
+  const [ callShow, setCallShow ] = useState(false)
 
   const them = (theme) => ("./styles/" + theme + "/main.css" );
 
   return (
     <Container>
+
+      <Button onClick={() => setCallShow(true)}>Calendar</Button>
+      <PsCalendar visible={callShow} show={setCallShow} /> 
+      
       <h2>Home page</h2>
       <h3>Choose Botswatch theme</h3>
       <Button style={{backgroundColor:"rgb(217, 227, 241)"}} onClick={()=>setTheme(them("Morph"))}>Morph</Button>
