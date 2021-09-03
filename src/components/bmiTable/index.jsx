@@ -1,5 +1,6 @@
 import Spinner from 'components/spinner'
 import { useAuthData } from 'hooks/authData'
+import useAlert from 'hooks/useAlert'
 import { useBmiHistory } from 'hooks/useBmiHistory'
 import React from 'react'
 import { Table, Button } from 'react-bootstrap'
@@ -18,6 +19,15 @@ const Tabela = ({ columns, data, rowClick }) => {
    })
    const { authData } = useAuthData();
    const { removeBmiItem, isRemoving } = useBmiHistory({ userID: authData.data.id });
+   
+   const Alert = useAlert({
+      title:<h3>Atention!</h3>,
+      body:<p>Confirm deleting!</p>,
+      buttons:[ 
+      { text: "Cancel", variant: "secondary", value: false },
+      { text: " Delete ",  variant: "primary", onClick: () => alert('Uuuu daaa!')},
+      ]
+    });
 
    const cellRender = (cell, row) => {
       if (cell.column.Header === "Delete") {
@@ -28,6 +38,7 @@ const Tabela = ({ columns, data, rowClick }) => {
 
    return (
       <>
+         <Alert.Tag />
          {(isRemoving) && <Spinner />}
          <Table striped hover size="sm"  {...getTableProps()}>
             <thead>

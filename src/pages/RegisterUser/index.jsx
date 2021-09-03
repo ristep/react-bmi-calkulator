@@ -57,7 +57,7 @@ const RegisterUser = () => {
         </Card.Header>
         <Card.Body>
           <Form className="p-2 bg-light" size="sm" autoComplete="off">
-            <Form.Group>
+            <Form.Group> 
               <Form.Control
                 id="email"
                 name="email"

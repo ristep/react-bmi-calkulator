@@ -35,9 +35,9 @@ let valSchema = yup.object().shape({
 const userDetailQuery = (token) => ({
   Get: {
     type: "users",
-    key:{
-      remember_token: token
-    },  
+    key: {
+      remember_token: token,
+    },
     attributes: [
       "id",
       "name",
@@ -71,7 +71,7 @@ const NewUserUpdate = () => {
     error,
     formData,
   } = useDataModule({ userDetailQuery, userUpdateQuery, userID });
-  const { onBlur,  errors } = useValiHook({ valSchema, formData });
+  const { onBlur, errors } = useValiHook({ valSchema, formData });
 
   return (
     <Container style={{ maxWidth: "600px" }}>
@@ -188,7 +188,9 @@ const NewUserUpdate = () => {
               </Form>
             </Card.Body>
 
-            <Button size="sm" onClick={ () => window.history.back()}>Back</Button>
+            <Button size="sm" onClick={() => window.history.back()}>
+              Back
+            </Button>
             {/* <Button size="sm" type="submit" variant="primary">
                 Click here to submit data
               </Button>

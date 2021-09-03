@@ -144,7 +144,7 @@ function Forma() {
 
          <Form noValidate onSubmit={formik.onSubmit} >
             <Row className="p-2 border bg-light">
-               <Form.Group className="col-3">
+               <Form.Group className="col-12 col-sm-3">
                   <Form.Label>Date</Form.Label>
                   <InputGroup className="mb-3">
                      <Button variant="secondary" onClick={() => PsCalendar.setVisible(true)}>
@@ -159,7 +159,7 @@ function Forma() {
                      />
                   </InputGroup>
                </Form.Group>
-               <Form.Group className="col-3">
+               <Form.Group className="col-12 col-sm-3" >
                   <Form.Label>Hour</Form.Label>
                   <InputGroup className="mb-3">
                      <Button variant="secondary" onClick={() => PsClock.setVisible(true)}>
@@ -175,7 +175,7 @@ function Forma() {
                      />
                   </InputGroup>
                </Form.Group>
-               <Form.Group className="col-3">
+               <Form.Group className="col-6 col-sm-3">
                   <Form.Label>Gender</Form.Label>
                   <Form.Select name="gender" onChange={formik.handleChange}>
                      <option value="Male">Male</option>
@@ -183,7 +183,7 @@ function Forma() {
                      <option value="Other">Other</option>
                   </Form.Select>
                </Form.Group>
-               <Form.Group className="col-3">
+               <Form.Group className="col-6 col-sm-3">
                   <Form.Label>Age group</Form.Label>
                   <Form.Select name="age" onChange={formik.handleChange}>
                      <option value="None">None</option>
