@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Container } from "react-bootstrap";
 import ReactJson from "react-json-view";
 import { useAuthData } from "hooks/authData";
 import { useBmiHistory } from "hooks/useBmiHistory";
-import useAlert from "hooks/useAlert";
+import { usePsAlert } from "hooks/usePsAlert";
 
 const About = (props) => {
   const { setTheme } = props;
   const { authData } = useAuthData();
   const { data:bmiData } = useBmiHistory({userID: authData.data.id}); 
 
-  const Alert = useAlert({
+  const Alert = usePsAlert({
     title:<h3>Important!</h3>,
     body:<p>This is an example of a custom alert component</p>,
     buttons:[ 

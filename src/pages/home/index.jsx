@@ -97,19 +97,18 @@ function Forma() {
    const { data: bmiData, addBmiHistory, isAdding, isLoading } = useBmiHistory({ userID: authData.data.id });
    const PsClock = usePsClockPicker();
    const PsCalendar = usePsCalendar();
+   // const [startDate, setStartDate] = useState(new Date());
+   // const [isOpen, setIsOpen] = useState(false);
 
-   const [startDate, setStartDate] = useState(new Date());
-   const [isOpen, setIsOpen] = useState(false);
+   // const handleChange = (e) => {
+   //    setIsOpen(!isOpen);
+   //    setStartDate(e);
+   // };
 
-   const handleChange = (e) => {
-      setIsOpen(!isOpen);
-      setStartDate(e);
-   };
-
-   const handleClick = (e) => {
-      e.preventDefault();
-      setIsOpen(!isOpen);
-   };
+   // const handleClick = (e) => {
+   //    e.preventDefault();
+   //    setIsOpen(!isOpen);
+   // };
 
    const formik = useFormik({ validationSchema: schema, initialValues, onSubmit: (values) => { values.preventdefaults(); } });
 
@@ -129,10 +128,12 @@ function Forma() {
    
    useEffect(() => {
       formik.handleChange({ target: { name: "ms_time", value: PsClock.time } });
+      // eslint-disable-next-line
    }, [PsClock.time]);
 
    useEffect(() => {
       formik.handleChange({ target: { name: "ms_date", value: PsCalendar.date } });
+      // eslint-disable-next-line
    }, [PsCalendar.date]);
 
    return (

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Modal } from 'react-bootstrap';
 import moment from "moment";
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
@@ -9,7 +9,7 @@ const dateFormat = 'YYYY-MM-DD';
 const usePsCalendar = () => {
   const [ visible, setVisible ] = useState(false);
   const [ date, setDate ] = useState();
-  const [ ok, setOk ] = useState(false);
+  // const [ ok, setOk ] = useState(false);
 
   const handleDayClick = (dd) => {
     setDate( moment(dd).format(dateFormat) );
@@ -30,7 +30,7 @@ const usePsCalendar = () => {
     </Modal>
   );
 
-  return ({ PsCalendar, setVisible, date, ok });
+  return ({ PsCalendar, setVisible, date });
 };
 
 export default usePsCalendar;

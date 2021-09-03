@@ -1,10 +1,10 @@
+import React from 'react'
 import Spinner from 'components/spinner'
 import { useAuthData } from 'hooks/authData'
-import useAlert from 'hooks/useAlert'
 import { useBmiHistory } from 'hooks/useBmiHistory'
-import React from 'react'
 import { Table, Button } from 'react-bootstrap'
 import { useTable } from 'react-table'
+import { usePsAlert } from 'hooks/usePsAlert'
 
 const Tabela = ({ columns, data, rowClick }) => {
    const {
@@ -19,26 +19,26 @@ const Tabela = ({ columns, data, rowClick }) => {
    })
    const { authData } = useAuthData();
    const { removeBmiItem, isRemoving } = useBmiHistory({ userID: authData.data.id });
-   
-   const Alert = useAlert({
+   const DelAlert = usePsAlert( {
       title:<h3>Atention!</h3>,
       body:<p>Confirm deleting!</p>,
       buttons:[ 
-      { text: "Cancel", variant: "secondary", value: false },
-      { text: " Delete ",  variant: "primary", onClick: () => alert('Uuuu daaa!')},
+         { text: "Cancel",  variant: "secondary", value: false },
+         { text: " Delete ",variant: "primary",   value: true },
       ]
-    });
+   });
 
    const cellRender = (cell, row) => {
       if (cell.column.Header === "Delete") {
-         return (<Button variant="danger" size="sm" onClick={() => removeBmiItem({ id: cell.value })} >X</Button>);
+         return (<Button variant="danger" size="sm" onClick={() => DelAlert.show( () => removeBmiItem({ id: cell.value }) )} >X</Button>);
       }
       return cell.render('Cell');
    }
 
    return (
       <>
-         <Alert.Tag />
+         <DelAlert.Tag />
+
          {(isRemoving) && <Spinner />}
          <Table striped hover size="sm"  {...getTableProps()}>
             <thead>

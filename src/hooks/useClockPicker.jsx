@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Badge, Button, Col, Modal, Row } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, Col, Modal, Row } from 'react-bootstrap';
 
-const dateFormat = 'YYYY-MM-DD';
 const timeArray = [
    [ '00:00', '12:00'],
    [ '01:00', '13:00'],
@@ -20,7 +19,7 @@ const timeArray = [
 const usePsClockPicker = () => {
    const [visible, setVisible] = useState(false);
    const [time, setTime] = useState('00:00');
-   const [ok, setOk] = useState(false);
+   // const [ok, setOk] = useState(false);
 
    const handleHourClick = (dd) => {
       setTime(dd);
@@ -47,7 +46,7 @@ const usePsClockPicker = () => {
       </Modal>
    );
 
-   return ({ PsClockPicker, setVisible, time, ok });
+   return ({ PsClockPicker, setVisible, time });
 };
 
 export default usePsClockPicker;
